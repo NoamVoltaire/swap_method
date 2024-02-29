@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:44:08 by noam              #+#    #+#             */
-/*   Updated: 2024/02/29 17:18:03 by noam             ###   ########.fr       */
+/*   Updated: 2024/02/29 17:52:45 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,28 @@ static	char	*word_to_string(char *s, char sep)
     *str = '\0';
 	return (return_str);
 }
+
+char	**split(char *str_of_words, char sep)
+{
+    char *s;
+    char **arr_of_words;
+    int i;
+
+	arr_of_words = (char **)malloc(sizeof(char *) * (wordcount(str_of_words, sep)));
+	if (arr_of_words == NULL)
+		return (NULL);
+    s = skiptonext(str_of_words, sep);
+    i=0;
+	while (*s)
+	{
+		arr_of_words[i] = word_to_string(s, sep);
+        while (*s && *s != sep)
+            s++;
+		i++;
+		s=skiptonext(s, sep);
+    }
+	return (arr_of_words);
+}
 /*
 char	**ft_split(char const *s, char c)
 {
@@ -86,7 +108,7 @@ char	**ft_split(char const *s, char c)
 			i++;
 		if (s[i] && (s[i] != c))
 		{
-			tab[j] = wordcopy((char *)s, c, i);
+			tab[j] = word_to_string((char *)s, c, i);
 			j++;
 		}
 		while (s[i] && (s[i] != c))
@@ -100,6 +122,23 @@ char	**ft_split(char const *s, char c)
 
 int	main(void)
 {
-	printf("wordcount %d\n", wordcount(" ", ' '));
-	printf("word_to_string %s\n", word_to_string("   world", ' '));
+    int i = 0;
+    int nbwords;
+    char **arr;
+    char *str = "asdf";
+    
+    nbwords = wordcount(str, ' ');
+    arr = split(str, ' ');
+    while (i < nbwords)
+    {
+        printf("word %d: %s\n", i, arr[i]);
+        i++;
+    }
+   
+    
+    
+    // printf("wordcount %d\n", wordcount(" ", ' '));
+    // printf("word_to_string %s\n", word_to_string("   world", ' '));
+	// printf("split %s\n", split("   world", ' '));
+	
 }
