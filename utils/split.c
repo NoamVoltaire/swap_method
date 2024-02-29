@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:44:08 by noam              #+#    #+#             */
-/*   Updated: 2024/02/29 17:12:02 by noam             ###   ########.fr       */
+/*   Updated: 2024/02/29 17:18:03 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ static	char	*word_to_string(char *s, char sep)
     int word_len;
     
     word_len = 0;
-    skiptonext(s, sep);
-    word = s;
+    word = skiptonext(s, sep);
+    s = word;
     while (*s && *s != sep)
     {
 		s++;
@@ -101,4 +101,5 @@ char	**ft_split(char const *s, char c)
 int	main(void)
 {
 	printf("wordcount %d\n", wordcount(" ", ' '));
+	printf("word_to_string %s\n", word_to_string("   world", ' '));
 }
