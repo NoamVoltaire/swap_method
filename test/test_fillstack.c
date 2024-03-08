@@ -7,8 +7,8 @@
 int main(void)
 {
 	t_stack *node;
-	printf("%d ",new_node(1, 0)->content == 1);
-	printf("%d ",new_node(2, 0)->content == 2);
+	printf("%d ",new_node(1)->content == 1);
+	printf("%d ",new_node(2)->content == 2);
 	printf("\n");
 	// return (0);
 

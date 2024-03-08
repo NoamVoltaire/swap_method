@@ -6,13 +6,13 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 18:44:39 by noam              #+#    #+#             */
-/*   Updated: 2024/03/08 18:02:00 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/08 18:15:36 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap_header.h"
 
-t_stack	*new_node(int content, int index)
+t_stack	*new_node(int content)
 {
 	t_stack	*mynode;
 
@@ -20,7 +20,6 @@ t_stack	*new_node(int content, int index)
 	if (mynode == NULL)
 		return (NULL);
 	mynode->content = content;
-	mynode->index = index;
 	mynode->next = mynode;
 	mynode->prev = mynode;
 	return (mynode);
@@ -46,11 +45,11 @@ void	fillstack(t_stack **a, char **array, const int len)
 	int		last;
 
 	last = len - 1;
-	*a = new_node(ft_atol(array[last]), 0);
+	*a = new_node(ft_atol(array[last]));
 	last--;
 	while (last >= 0)
 	{
-		tmp = new_node(ft_atol(array[last]), 0);
+		tmp = new_node(ft_atol(array[last]));
 		add_to_front(a, tmp);
 		last--;
 	}
