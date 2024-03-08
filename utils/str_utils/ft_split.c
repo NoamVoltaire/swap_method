@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   split.c                                            :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:44:08 by noam              #+#    #+#             */
-/*   Updated: 2024/03/01 12:57:33 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/08 17:07:18 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static	char	*word_to_string(char *s, char sep)
 	return (return_str);
 }
 
-char	**split(char *str_words, char sep)
+char	**ft_split(char *str_words, char sep)
 {
 	char	*s;
 	char	**arr_words;
