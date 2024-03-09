@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 18:44:39 by noam              #+#    #+#             */
-/*   Updated: 2024/03/08 18:15:36 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/09 19:53:29 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,23 @@ void	fillstack(t_stack **a, char **array, const int len)
 		last--;
 	}
 	return ;
+}
+
+void	free_stack(t_stack **lst)
+{
+	t_stack	*last_node;
+	t_stack	*tmp;
+
+	if (!(*lst))
+		return ;
+	last_node = (*lst)->prev;
+	tmp = (*lst)->next;
+	while ((*lst) && last_node != *lst)
+	{
+		free(*lst);
+		*lst = tmp;
+		tmp = (*lst)->next;
+	}
+	free(*lst);
+	*lst = NULL;
 }
