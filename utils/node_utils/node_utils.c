@@ -6,11 +6,11 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 18:44:39 by noam              #+#    #+#             */
-/*   Updated: 2024/03/09 19:53:29 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/11 20:19:23 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap_header.h"
+#include "../../push_swap_header.h"
 
 t_stack	*new_node(int content)
 {

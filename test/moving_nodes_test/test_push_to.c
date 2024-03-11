@@ -1,9 +1,9 @@
-#include "../utils/moving_utils/push_to.c"
-#include "../utils/node_utils.c"
-#include "../utils/str_utils/ft_split.c"
-#include "../utils/str_utils/ft_atol.c"
-#include "../utils/moving_utils/rr_rrr_ss.c"
-#include "../utils/moving_utils/swap_rotate_revrotate.c"
+#include "../../utils/moving_utils/push_to.c"
+#include "../../utils/node_utils.c"
+#include "../../utils/str_utils/ft_split.c"
+#include "../../utils/str_utils/ft_atol.c"
+#include "../../utils/moving_utils/rr_rrr_ss.c"
+#include "../../utils/moving_utils/swap_rotate_revrotate.c"
 
 
 static int	iterate_and_check(t_stack *a, t_stack *b,
