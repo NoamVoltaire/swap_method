@@ -6,12 +6,11 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:46:51 by noam              #+#    #+#             */
-/*   Updated: 2024/03/08 17:39:43 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/11 20:39:45 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap_header.h"
-// #include <limits.h>
 
 long	ft_atol(const char *digit_str)
 {
