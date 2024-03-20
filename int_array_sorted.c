@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 03:42:37 by noam              #+#    #+#             */
-/*   Updated: 2024/03/12 13:11:37 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/17 02:23:58 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,24 +51,32 @@ void	ft_quicksort(int *array, int low, int high)
 	}
 }
 
-int	*strings_to_int_array(char **tab, int len)
+int	*lst_to_int_array(t_stack **a, int len)
 {
-	int	*array;
+	t_stack	*tmp;
+	int		*array;
+	int		i;
 
-
+	tmp = *a;
+	i = 0;
 	array = (int *)malloc(sizeof(int) * len);
 	if (!array)
 		return (NULL);
-	while (--len >= 0)
-		array[len] = ft_atol(tab[len]);
+	while (len > 0)
+	{
+		array[i] = tmp->content;
+		tmp = tmp->next;
+		len--;
+		i++;
+	}
 	return (array);
 }
 
-int	*int_array_sorted(char **tab, int len)
+int	*int_array_sorted(t_stack **a, int len)
 {
 	int	*array;
 
-	array = strings_to_int_array(tab, len);
+	array = lst_to_int_array(a, len);
 	ft_quicksort(array, 0, len -1);
 	return (array);
 }

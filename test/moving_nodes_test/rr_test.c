@@ -1,5 +1,5 @@
 	// #include "../utils/moving_utils/push_to.c"
-#include "../../utils/node_utils.c"
+#include "../../utils/node_utils/node_utils.c"
 #include "../../utils/str_utils/ft_split.c"
 #include "../../utils/str_utils/ft_atol.c"
 #include "../../utils/moving_utils/rr_rrr_ss.c"
