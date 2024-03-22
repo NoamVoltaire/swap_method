@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 18:00:56 by noam              #+#    #+#             */
-/*   Updated: 2024/03/09 19:44:40 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/21 15:59:48 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,28 @@ void	swap(t_stack **lst, char stack)
 		write(1, "sb\n", 3);
 }
 
-void	rotate(t_stack **lst, char stack)
+void	rotate(t_stack **lst, char stack, t_global *global)
 {
 	t_stack	*tmp;
 
+	global->nb_ops++;
 	*lst = (*lst)->next;
+	if (global->debug)
+		return ;
 	if (stack == 'a')
 		write(1, "ra\n", 3);
 	else if (stack == 'b')
 		write(1, "rb\n", 3);
 }
 
-void	reverse_rotate(t_stack **lst, char stack)
+void	reverse_rotate(t_stack **lst, char stack, t_global *global)
 {
 	t_stack	*tmp;
 
+	global->nb_ops++;
 	*lst = (*lst)->prev;
+	if (global->debug)
+		return ;
 	if (stack == 'a')
 		write(1, "rra\n", 4);
 	else if (stack == 'b')

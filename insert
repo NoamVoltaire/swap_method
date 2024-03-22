@@ -176,7 +176,7 @@ int	is_cheaper(t_stack **node, t_stack **target_node)
 
 }
 
-void go_to_min_node(t_stack **a, global_struct global)
+void	go_to_min_node(t_stack **a, t_global global)
 {
 	t_stack	*tmp;
 	int		min;

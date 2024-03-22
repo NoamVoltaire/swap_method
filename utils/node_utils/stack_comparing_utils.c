@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_input.c                                      :+:      :+:    :+:   */
+/*   stack_comparing_utils.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 22:18:19 by noam              #+#    #+#             */
-/*   Updated: 2024/03/21 16:25:31 by noam             ###   ########.fr       */
+/*   Created: 2024/03/12 20:55:15 by noam              #+#    #+#             */
+/*   Updated: 2024/03/21 16:34:45 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap_header.h"
+#include "../../push_swap_header.h"
 
-void	check_input(char **arg)
+int	next_node_is_bigger(t_stack *lst)
 {
-	long	index;
-	int		i;
+	if (!lst->next || !lst)
+		return (0);
+	return (lst->content < lst->next->content);
+}
 
-	i = 0;
-	index = 0;
-	while (arg[i])
+int	stack_is_sorted(t_stack **lst)
+{
+	t_stack	*tmp;
+
+	tmp = (*lst)->prev;
+	while ((*lst) != tmp)
 	{
-		if (!is_digit(arg[i]))
-			error(NULL, NULL);
-		if (ft_atol(arg[i]) > 2147483647 || ft_atol(arg[i]) < -2147483648)
-			error(NULL, NULL);
-		index = 1;
-		while (arg[i + index])
-		{
-			if (!ft_strncmp(arg[i], arg[i + index], 12))
-				error(NULL, NULL);
-			index++;
-		}
-		i++;
+		if (!next_node_is_bigger(*lst))
+			return (0);
+		(*lst) = (*lst)->next;
 	}
+	return (1);
 }
