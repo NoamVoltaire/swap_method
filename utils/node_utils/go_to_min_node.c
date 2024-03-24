@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:48:52 by noam              #+#    #+#             */
-/*   Updated: 2024/03/21 18:17:33 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/24 19:29:12 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	go_to_min_node(t_stack **a, t_global *global)
 
 	nb_ra = find_low(*a, *global);
 	nb_rra = global->len_a - nb_ra;
-	// nb_rra = global_len - nb_ra;
 	if (nb_ra > nb_rra)
 		nb_ra = 0;
 	else 

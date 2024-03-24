@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 18:12:57 by noam              #+#    #+#             */
-/*   Updated: 2024/03/21 18:18:55 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/24 19:33:55 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,7 @@ static	int	is_cheaper(t_stack **node, t_stack **target_node)
 	int	target_cost;
 
 	node_cost = calculate_cost((*node)->a_rot, (*node)->b_rot);
-	// printf("node_cost = %d\n", node_cost);
 	target_cost = calculate_cost((*target_node)->a_rot, (*target_node)->b_rot);
-	// printf("target_cost = %d\n", target_cost);
 	return (node_cost < target_cost);
 }
 
@@ -73,4 +71,3 @@ t_stack	*find_cheapest_node(t_stack **b)
 	}
 	return (cheapest);
 }
-

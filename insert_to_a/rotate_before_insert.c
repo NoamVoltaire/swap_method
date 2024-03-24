@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 14:14:45 by noam              #+#    #+#             */
-/*   Updated: 2024/03/21 18:30:43 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/24 19:34:07 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ void	rev_rotate_both(t_stack **a, t_stack **b, t_global *global)
 	}
 }
 
-void	rotate_single(t_stack **lst, char stack_name, int rotation, t_global *global)
+void	rotate_single(t_stack **lst, char lst_name, int rota, t_global *global)
 {
-	while (rotation > 0 && rotation--)
-		rotate(lst, stack_name, global);
-	while (rotation < 0 && rotation++)
-		reverse_rotate(lst, stack_name, global);
+	while (rota > 0 && rota--)
+		rotate(lst, lst_name, global);
+	while (rota < 0 && rota++)
+		reverse_rotate(lst, lst_name, global);
 }
 
 void	rotate_before_insert(t_stack **a, t_stack **b, t_global *global)
@@ -47,4 +47,3 @@ void	rotate_before_insert(t_stack **a, t_stack **b, t_global *global)
 	rotate_single(a, 'a', global->target_node->a_rot, global);
 	rotate_single(b, 'b', global->target_node->b_rot, global);
 }
-

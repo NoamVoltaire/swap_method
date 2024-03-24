@@ -6,12 +6,11 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:44:08 by noam              #+#    #+#             */
-/*   Updated: 2024/03/11 20:36:45 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/24 19:26:59 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap_header.h"
-
 
 static char	*advance_to_next_word(char *s, char sep)
 {
@@ -19,7 +18,6 @@ static char	*advance_to_next_word(char *s, char sep)
 		s++;
 	return (s);
 }
-
 
 static	int	wordcount(char *s, char sep)
 {

@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 18:00:56 by noam              #+#    #+#             */
-/*   Updated: 2024/03/21 15:59:48 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/24 19:28:42 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ void	swap(t_stack **lst, char stack)
 
 void	rotate(t_stack **lst, char stack, t_global *global)
 {
-	t_stack	*tmp;
-
 	global->nb_ops++;
 	*lst = (*lst)->next;
 	if (global->debug)
@@ -51,8 +49,6 @@ void	rotate(t_stack **lst, char stack, t_global *global)
 
 void	reverse_rotate(t_stack **lst, char stack, t_global *global)
 {
-	t_stack	*tmp;
-
 	global->nb_ops++;
 	*lst = (*lst)->prev;
 	if (global->debug)
