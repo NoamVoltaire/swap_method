@@ -6,13 +6,13 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 16:36:26 by noam              #+#    #+#             */
-/*   Updated: 2024/03/24 19:40:54 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/25 13:09:30 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_header.h"
 
-void	initialize(char **arg, int len)
+static	void	initialize_n_start(char **arg, int len)
 {
 	t_stack		*a;
 	t_stack		*b;
@@ -21,9 +21,11 @@ void	initialize(char **arg, int len)
 	b = NULL;
 	fillstack(&a, arg, len);
 	global = init_global(&a, len);
-	sort_algo(&a, &b, global);
-	printf("is sorted = %d\n", stack_is_sorted(&a));
-	printf("nb of total ops = %d\n", global->nb_ops);
+	start_sorting(&a, &b, global);
+	// printf("is sorted = %d\n", stack_is_sorted(&a));
+	// printf("nb of total ops = %d\n", global->nb_ops);
+	free_stack(&a);
+	free_stack(&b);
 }
 
 int	main(int ac, char **av)
@@ -31,6 +33,8 @@ int	main(int ac, char **av)
 	char	**args;
 	int		len;
 
+	if (ac <= 1)
+		return (0);
 	if (ac == 2)
 		args = ft_split(av[1], ' ');
 	else
@@ -39,16 +43,11 @@ int	main(int ac, char **av)
 	len = count_args(args) + 1;
 	if (len == 1)
 		return (0);
-	// if (len < 4)
-	// 	minisort(args, len);
-	initialize(args, len);
-	printf("len = %d\n", len);
-	// while (len--)
-	// 	printf("av = %s\n", *args++);
+	initialize_n_start(args, len);
 }
 
 /* ************************************************************************** */
-
+/*
 void	print_lst(t_stack *lst)
 {
 	if (!lst)
@@ -74,3 +73,4 @@ void	print_lst(t_stack *lst)
 	}
 	printf("\n");
 }
+*/

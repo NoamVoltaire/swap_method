@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 02:45:16 by noam              #+#    #+#             */
-/*   Updated: 2024/03/21 16:01:47 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/25 01:00:44 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	rrr(t_stack **a, t_stack **b, t_global *global)
 		write(1, "rrr\n", 4);
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b, t_global *global)
 {
-	swap(a, ' ');
-	swap(b, ' ');
+	swap(a, ' ', global);
+	swap(b, ' ', global);
 	write(1, "ss\n", 3);
 }

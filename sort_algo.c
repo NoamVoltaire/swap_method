@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 17:59:03 by noam              #+#    #+#             */
-/*   Updated: 2024/03/23 12:22:04 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/25 02:31:49 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,19 @@
 void	pre_sort_to_b(t_stack **a, t_stack **b, t_global *global)
 {
 	t_stack	*tmp;
+	int		mid;
 
 	tmp = (*a)->prev;
+	mid = global->len_a / 2;
+	while ((*a) != tmp)
+	{
+		if ((*a)->content == global->high || (*a)->content == global->low
+			|| (*a)->content > mid)
+			rotate(a, 'a', global);
+		else
+			push(a, b, 'b', global);
+	}
+	rotate(a, 'a', global);
 	while ((*a) != tmp)
 	{
 		if ((*a)->content == global->high || (*a)->content == global->low)
@@ -49,14 +60,9 @@ void	insert_all(t_stack **a, t_stack **b, t_global *global)
 	while (*b)
 	{
 		rotation_instructions(a, b, global);
-		// printf("b->a_rot = %d b->b_rot = %d\n", (*b)->a_rot, (*b)->b_rot);
 		global->target_node = find_cheapest_node(b);
 		rotate_before_insert(a, b, global);
 		push(b, a, 'a', global);
-		// print_lst(*a);
-		// print_lst(*b);
-
-		// printf("len a %d len b %d\n", global->len_a, global->len_b);
 	}
 }
 
@@ -78,12 +84,8 @@ t_global	*init_global(t_stack **a, int len)
 void	sort_algo(t_stack **a, t_stack **b, t_global *global)
 {
 	pre_sort_to_b(a, b, global);
-	// print_lst(b);
 	insert_all(a, b, global);
 	go_to_min_node(a, global);
-	print_lst(*a);
-	print_lst(*b);
-	// printf("nb of total ops = %d\n", global->nb_ops);
 }
 
 /* ************************************************************************** */

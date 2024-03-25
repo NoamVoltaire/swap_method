@@ -6,16 +6,21 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 18:00:56 by noam              #+#    #+#             */
-/*   Updated: 2024/03/24 19:28:42 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/25 21:01:19 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap_header.h"
 
-void	swap(t_stack **lst, char stack)
+void	swap(t_stack **lst, char stack, t_global *global)
 {
 	t_stack	*tmp;
 
+	global->nb_ops++;
+	if (stack == 'a')
+		write(1, "sa\n", 3);
+	else if (stack == 'b')
+		write(1, "sb\n", 3);
 	if ((*lst)->next->next == (*lst))
 	{
 		(*lst) = (*lst)->next;
@@ -29,10 +34,6 @@ void	swap(t_stack **lst, char stack)
 	tmp->prev->next = tmp;
 	(*lst)->prev = tmp;
 	*lst = tmp;
-	if (stack == 'a')
-		write(1, "sa\n", 3);
-	else if (stack == 'b')
-		write(1, "sb\n", 3);
 }
 
 void	rotate(t_stack **lst, char stack, t_global *global)
