@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:02:31 by noam              #+#    #+#             */
-/*   Updated: 2024/03/29 03:08:54 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/29 10:55:08 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ char	**parse_n_check(int ac, char **av, int *is_mallocd)
 	else
 		args = av + 1;
 	check_input(args, *is_mallocd);
-	// printf("args[3]: %s\n", args[3]);
 	return (args);
 }
 
@@ -66,12 +65,14 @@ int	main(int ac, char **av)
 	args = parse_n_check(ac, av, mallocd);
 	len = count_args(args) + 1;
 	fillstack(&a_bonus, args, len);
-	read_and_exec(a_bonus, len);
-	// compare_to_sorted(a_bonus, args, len);
-	// free_stack(&a_bonus);
+	read_and_exec(&a_bonus, len);
+	if (compare_to_sorted(a_bonus, args, len))
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
+	free_stack(&a_bonus);
 	if (mallocd)
 		free_array(args);
-	write(1, "OK\n", 3);
 }
 
 /* ************************************************************************** */

@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 02:09:22 by noam              #+#    #+#             */
-/*   Updated: 2024/03/28 02:52:54 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/29 10:55:38 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void	exec_rotate(char *cmd, t_stack **a, t_stack **b, t_global *global)
 void	exec_push(char *cmd, t_stack **a, t_stack **b, t_global *global)
 {
 	if (ft_strncmp(cmd, "pb", 2) == 0)
-		push(a, b, 'a', global);
+		push(a, b, 'b', global);
 	else if (ft_strncmp(cmd, "pa", 2) == 0)
-		push(b, a, 'b', global);
+		push(b, a, 'a', global);
 }
 
-void	execute_commands(char **cmnds, t_stack *a, int len)
+void	execute_commands(char **cmnds, t_stack **a, int len)
 {
 	t_stack			*b;
 	int				i;
@@ -55,18 +55,17 @@ void	execute_commands(char **cmnds, t_stack *a, int len)
 	b = NULL;
 	i = 0;
 	global = NULL;
-	global = init_global(&a, len);
+	global = init_global(a, len);
 	while (cmnds[i])
 	{
 		if (cmnds[i][0] == 'p')
-			exec_push(cmnds[i], &a, &b, global);
+			exec_push(cmnds[i], a, &b, global);
 		else if (cmnds[i][0] == 'r')
-			exec_rotate(cmnds[i], &a, &b, global);
+			exec_rotate(cmnds[i], a, &b, global);
 		else if (cmnds[i][0] == 's')
-			exec_swap(cmnds[i], &a, &b, global);
+			exec_swap(cmnds[i], a, &b, global);
 		i++;
 	}
-	
 	free_stack(&b);
 	free(global->sorted);
 	free(global);
