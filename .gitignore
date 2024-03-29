@@ -3,4 +3,6 @@ a.out
 *.gch
 push_swap_tester
 objs
+objs_bonus
+checker
 push_swap
