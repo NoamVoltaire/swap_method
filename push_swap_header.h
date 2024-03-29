@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 18:03:20 by noam              #+#    #+#             */
-/*   Updated: 2024/03/25 13:09:43 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/29 03:18:55 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,9 @@ typedef struct s_info
 // void		print_lst(t_stack *lst);
 
 //	utils
-void		error(t_stack *a, t_stack *b);
-void		check_input(char **arg);
+void		error(char **array, int mallocd);
+void		check_input(char **arg, int mallocd);
+void		free_array(char **array);
 
 //	str utils
 char		**ft_split(char *str_words, char sep);
@@ -91,5 +92,19 @@ void		insert_all(t_stack **a, t_stack **b, t_global *global);
 void		rotation_instructions(t_stack **a, t_stack **b, t_global *global);
 t_stack		*find_cheapest_node(t_stack **b);
 void		rotate_before_insert(t_stack **a, t_stack **b, t_global *global);
+
+/*----------------------------------bonus------------------------------------*/
+// utils
+void		error_ko(char *line);
+void		check_read_line(char *big_line);
+char		*ft_strjoin(char *s1, char *s2);
+int			lst_len(t_stack *stack);
+
+
+char		*get_next_line(int fd);
+void		read_and_exec(t_stack *a, int len);
+void		execute_commands(char **cmnds, t_stack *a, int len);
+
+
 
 #endif  

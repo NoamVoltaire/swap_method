@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 16:36:26 by noam              #+#    #+#             */
-/*   Updated: 2024/03/25 13:09:30 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/29 03:18:16 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,35 @@ static	void	initialize_n_start(char **arg, int len)
 	fillstack(&a, arg, len);
 	global = init_global(&a, len);
 	start_sorting(&a, &b, global);
-	// printf("is sorted = %d\n", stack_is_sorted(&a));
-	// printf("nb of total ops = %d\n", global->nb_ops);
 	free_stack(&a);
 	free_stack(&b);
+	free(global->sorted);
+	free(global);
 }
 
 int	main(int ac, char **av)
 {
 	char	**args;
 	int		len;
+	int		is_mallocd;
 
+	is_mallocd = 0;
 	if (ac <= 1)
 		return (0);
 	if (ac == 2)
+	{
 		args = ft_split(av[1], ' ');
+		is_mallocd = 1;
+	}
 	else
 		args = av + 1;
-	check_input(args);
+	check_input(args, is_mallocd);
 	len = count_args(args) + 1;
 	if (len == 1)
 		return (0);
 	initialize_n_start(args, len);
+	if (is_mallocd)
+		free_array(args);
 }
 
 /* ************************************************************************** */
