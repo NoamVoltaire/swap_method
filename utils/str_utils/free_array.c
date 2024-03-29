@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   free_array.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 22:21:30 by noam              #+#    #+#             */
-/*   Updated: 2024/03/28 02:20:03 by noam             ###   ########.fr       */
+/*   Created: 2024/03/26 00:50:22 by noam              #+#    #+#             */
+/*   Updated: 2024/03/28 02:01:40 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap_header.h"
+#include "../../push_swap_header.h"
 
-void	error(char **array, int mallocd)
+void	free_array(char **array)
 {
-	if (array && mallocd)
-		free_array(array);
-	write(2, "Error\n", 6);
-	exit(1);
+	int	i;
+
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }

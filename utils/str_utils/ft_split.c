@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:44:08 by noam              #+#    #+#             */
-/*   Updated: 2024/03/24 19:26:59 by noam             ###   ########.fr       */
+/*   Updated: 2024/03/29 03:03:27 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,23 +66,25 @@ static	char	*word_to_string(char *s, char sep)
 char	**ft_split(char *str_words, char sep)
 {
 	char	*s;
-	char	**arr_words;
+	char	**arr;
 	int		i;
 
-	arr_words = (char **)malloc(sizeof(char *) * (wordcount(str_words, sep)));
-	if (arr_words == NULL)
+	if (!str_words)
+		return (NULL);
+	arr = (char **)malloc(sizeof(char *) * (wordcount(str_words, sep) + 1));
+	if (arr == NULL)
 		return (NULL);
 	s = advance_to_next_word(str_words, sep);
 	i = 0;
 	while (*s)
 	{
-		arr_words[i] = word_to_string(s, sep);
+		arr[i] = word_to_string(s, sep);
 		while (*s && *s != sep)
 			s++;
 		i++;
 		s = advance_to_next_word(s, sep);
 	}
-	return (arr_words);
+	return (arr);
 }
 
 /* ************************************************************************** */
