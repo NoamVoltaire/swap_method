@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: noam <noam@student.42.fr>                  +#+  +:+       +#+         #
+#    By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/23 12:24:06 by noam              #+#    #+#              #
-#    Updated: 2024/03/28 02:03:13 by noam             ###   ########.fr        #
+#    Updated: 2024/04/24 12:41:00 by nvoltair         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,6 @@ MV_UTLS_PTH = utils/moving_utils/
 ND_UTLS_PTH = utils/node_utils/
 STR_UTLS_PTH = utils/str_utils/
 INSERT_PTH = insert_to_a/
-
-
-# PRE_SORT_PTH = pre_sort_to_b/
 
 SRC = $(MV_UTLS_PTH)push_to.c $(MV_UTLS_PTH)rr_rrr_ss.c \
 		$(MV_UTLS_PTH)swap_rotate_revrotate.c \
@@ -57,7 +54,6 @@ $(OBJ_DIR_BONUS)%.o: %.c
 	mkdir -p $(dir $@)
 	cc -c $(FLAGS) -o $@ $<
 
-
 OBJ_DIR = objs/
 OBJ = $(SRCS:.c=.o)
 OBJS = $(addprefix $(OBJ_DIR),$(OBJ))
@@ -73,19 +69,19 @@ $(OBJ_DIR)%.o: %.c
 	mkdir -p $(dir $@)
 	cc -c $(FLAGS) -o $@ $<
 
+all : $(OBJ_DIR) $(NAME)
 
-# $(NAME) : $(OBJS)
-# 	ar rcs $@ $^
-# 	ranlib $@
+bonus : $(OBJ_DIR) $(OBJ_DIR_BONUS) $(BONUS_NAME)
 
-all : $(OBJ_DIR) $(NAME) $(BONUS_DIR) $(BONUS_NAME)
+.PHONY : all clean fclean re bonus
 
-.PHONY : all clean fclean re
 clean :
 	rm -rf $(OBJ_DIR)
+	rm -rf $(OBJ_DIR_BONUS)	
 
 fclean : clean
 	rm -f $(NAME)
+	rm -f $(BONUS_NAME)
 	rm -f a.out
 
-re : fclean all
+re : fclean all bonus
