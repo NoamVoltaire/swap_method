@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_read_line.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 01:44:58 by noam              #+#    #+#             */
-/*   Updated: 2024/03/28 02:50:32 by noam             ###   ########.fr       */
+/*   Updated: 2024/05/09 16:12:43 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_cmd(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] != 's' && str[i] != 'r' && str[i] != 'p' 
+		if (str[i] != 's' && str[i] != 'r' && str[i] != 'p'
 			&& str[i] != 'a' && str[i] != 'b' && str[i] != '\n')
 			return (0);
 		i++;

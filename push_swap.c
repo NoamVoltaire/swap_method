@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 16:36:26 by noam              #+#    #+#             */
-/*   Updated: 2024/03/29 03:18:16 by noam             ###   ########.fr       */
+/*   Updated: 2024/05/09 16:11:19 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int ac, char **av)
 		args = av + 1;
 	check_input(args, is_mallocd);
 	len = count_args(args) + 1;
-	if (len == 1)
+	if (len == 1) // NEED FREE
 		return (0);
 	initialize_n_start(args, len);
 	if (is_mallocd)

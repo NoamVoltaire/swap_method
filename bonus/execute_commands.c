@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_commands.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 02:09:22 by noam              #+#    #+#             */
-/*   Updated: 2024/03/29 10:55:38 by noam             ###   ########.fr       */
+/*   Updated: 2024/05/09 13:59:03 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	execute_commands(char **cmnds, t_stack **a, int len)
 	i = 0;
 	global = NULL;
 	global = init_global(a, len);
-	while (cmnds[i])
+	while (cmnds && cmnds[i])
 	{
 		if (cmnds[i][0] == 'p')
 			exec_push(cmnds[i], a, &b, global);

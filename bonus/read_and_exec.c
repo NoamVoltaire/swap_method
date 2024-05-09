@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_and_exec.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 01:06:43 by noam              #+#    #+#             */
-/*   Updated: 2024/03/29 10:57:01 by noam             ###   ########.fr       */
+/*   Updated: 2024/05/09 13:35:47 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	read_and_exec(t_stack **a, int len)
 	char	**instructions;
 
 	big_read_line = read_all();
+	if (big_read_line == NULL)
+		return ;
 	check_read_line(big_read_line);
 	instructions = ft_split(big_read_line, '\n');
 	free(big_read_line);

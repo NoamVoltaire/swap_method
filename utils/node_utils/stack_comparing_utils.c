@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_comparing_utils.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 20:55:15 by noam              #+#    #+#             */
-/*   Updated: 2024/03/21 16:34:45 by noam             ###   ########.fr       */
+/*   Updated: 2024/05/09 16:05:48 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,16 @@ int	next_node_is_bigger(t_stack *lst)
 
 int	stack_is_sorted(t_stack **lst)
 {
+	t_stack	*_head;
 	t_stack	*tmp;
 
-	tmp = (*lst)->prev;
-	while ((*lst) != tmp)
+	_head = (*lst)->prev;
+	tmp = *lst;
+	while (tmp != _head)
 	{
-		if (!next_node_is_bigger(*lst))
+		if (!next_node_is_bigger(tmp))
 			return (0);
-		(*lst) = (*lst)->next;
+		tmp = tmp->next;
 	}
 	return (1);
 }
