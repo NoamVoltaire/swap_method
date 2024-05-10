@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 18:03:20 by noam              #+#    #+#             */
-/*   Updated: 2024/05/09 16:17:49 by nvoltair         ###   ########.fr       */
+/*   Updated: 2024/05/10 13:36:58 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void		free_array(char **array);
 char		**ft_split(char *str_words, char sep);
 long		ft_atol(const char *digit_str);
 int			is_digit(char *str);
-int			ft_strncmp(const char *s1, const char *s2, size_t n);
+// int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			count_args(char **argsss);
 
 //	node utils

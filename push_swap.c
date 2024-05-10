@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 16:36:26 by noam              #+#    #+#             */
-/*   Updated: 2024/05/09 16:11:19 by nvoltair         ###   ########.fr       */
+/*   Updated: 2024/05/10 13:03:50 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,20 @@ int	main(int ac, char **av)
 		args = av + 1;
 	check_input(args, is_mallocd);
 	len = count_args(args) + 1;
-	if (len == 1) // NEED FREE
+	if (len == 1)
+	{
+		free_array(args);
 		return (0);
+	} // NEED FREE
 	initialize_n_start(args, len);
 	if (is_mallocd)
 		free_array(args);
 }
+
+
+// SEE WHEN ARGS == NULL
+// SEE ATOL CUZ 008 or 001 does weird things
+
 
 /* ************************************************************************** */
 /*

@@ -6,7 +6,7 @@
 #    By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/23 12:24:06 by noam              #+#    #+#              #
-#    Updated: 2024/04/24 12:41:00 by nvoltair         ###   ########.fr        #
+#    Updated: 2024/05/10 10:19:55 by nvoltair         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,24 +40,12 @@ BONUS_SRCS = $(SRC) $(BONUS_PTH)get_next_line/get_next_line.c \
 			$(BONUS_PTH)checker.c $(BONUS_PTH)execute_commands.c \
 			$(BONUS_PTH)read_and_exec.c
 
-OBJ_DIR_BONUS = objs_bonus/
-OBJ_BONUS = $(BONUS_SRCS:.c=.o)
-OBJS_BONUS = $(addprefix $(OBJ_DIR_BONUS),$(OBJ_BONUS))
-
-$(BONUS_NAME) : $(OBJS_BONUS)
-	cc $(FLAGS) -o $@ $(OBJS_BONUS)
-
-$(OBJ_DIR_BONUS):
-	mkdir $(OBJ_DIR_BONUS)
-
-$(OBJ_DIR_BONUS)%.o: %.c
-	mkdir -p $(dir $@)
-	cc -c $(FLAGS) -o $@ $<
-
 OBJ_DIR = objs/
 OBJ = $(SRCS:.c=.o)
 OBJS = $(addprefix $(OBJ_DIR),$(OBJ))
-
+OBJ_DIR_BONUS = objs_bonus/
+OBJ_BONUS = $(BONUS_SRCS:.c=.o)
+OBJS_BONUS = $(addprefix $(OBJ_DIR_BONUS),$(OBJ_BONUS))
 
 $(NAME) : $(OBJS)
 	cc $(FLAGS) -o $@ $(OBJS)
@@ -68,8 +56,21 @@ $(OBJ_DIR):
 $(OBJ_DIR)%.o: %.c
 	mkdir -p $(dir $@)
 	cc -c $(FLAGS) -o $@ $<
+	
+$(BONUS_NAME) : $(OBJS_BONUS)
+	cc $(FLAGS) -o $@ $(OBJS_BONUS)
 
-all : $(OBJ_DIR) $(NAME)
+$(OBJ_DIR_BONUS):
+	mkdir $(OBJ_DIR_BONUS)
+
+$(OBJ_DIR_BONUS)%.o: %.c
+	mkdir -p $(dir $@)
+	cc -c $(FLAGS) -o $@ $<
+
+
+
+
+all : $(OBJ_DIR) $(NAME) bonus $(BONUS_NAME)
 
 bonus : $(OBJ_DIR) $(OBJ_DIR_BONUS) $(BONUS_NAME)
 
@@ -84,4 +85,4 @@ fclean : clean
 	rm -f $(BONUS_NAME)
 	rm -f a.out
 
-re : fclean all bonus
+re : fclean all

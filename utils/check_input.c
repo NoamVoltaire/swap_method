@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 22:18:19 by noam              #+#    #+#             */
-/*   Updated: 2024/03/29 03:15:21 by noam             ###   ########.fr       */
+/*   Updated: 2024/05/10 13:37:15 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	check_input(char **arg, int mallocd)
 
 	i = 0;
 	index = 0;
+	if (!arg[i])
+		error(arg, mallocd);
 	while (arg[i])
 	{
 		if (!is_digit(arg[i]))
@@ -28,7 +30,7 @@ void	check_input(char **arg, int mallocd)
 		index = 1;
 		while (arg[i + index])
 		{
-			if (!ft_strncmp(arg[i], arg[i + index], 12))
+			if (ft_atol(arg[i]) == ft_atol(arg[i + index]))
 				error(arg, mallocd);
 			index++;
 		}
