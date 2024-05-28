@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 18:03:20 by noam              #+#    #+#             */
-/*   Updated: 2024/05/28 13:12:30 by nvoltair         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:18:57 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,8 @@ char		*ft_strjoin(char *s1, char *s2);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 // int			lst_len(t_stack *stack);
 
-
 char		*get_next_line(int fd);
 void		read_and_exec(t_stack **a, int len);
 void		execute_commands(char **cmnds, t_stack **a, int len);
-
-
 
 #endif  
